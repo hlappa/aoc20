@@ -32,8 +32,6 @@ defmodule TobogganTrajectory do
         {pos, trees}
       end)
 
-    IO.puts(trees)
-
     trees
   end
 
@@ -49,7 +47,7 @@ defmodule TobogganTrajectory do
   end
 end
 
-# IO.puts("Part1:")
-# TobogganTrajectory.part1()
+IO.puts("Part1:")
+TobogganTrajectory.part1()
 IO.puts("Part2:")
 TobogganTrajectory.part2()
