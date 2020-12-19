@@ -66,7 +66,7 @@ defmodule PassportProcessing do
 
   defp validate_between(value, min, max) do
     n = String.to_integer(value)
-    n >= min && n <= max
+    n in min..max
   end
 
   defp validate_fields(fields) do
