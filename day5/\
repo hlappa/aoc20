@@ -1,0 +1,53 @@
+defmodule CustomCustoms do
+  def part1 do
+    sum =
+      get_values()
+      |> Enum.map(fn str -> String.replace(str, " ", "") |> String.graphemes() |> Enum.uniq() end)
+      |> Enum.reduce(0, fn str, acc ->
+        acc + length(str)
+      end)
+
+    IO.inspect(sum)
+  end
+
+  def part2 do
+    answer =
+      get_values()
+      |> Enum.map(fn v -> String.trim_trailing(v, " ") end)
+      |> Enum.reduce(0, fn entry, acc ->
+        if !String.contains?(entry, " ") && String.length(entry) > 1 do
+          acc + String.length(entry)
+        else
+          if String.length(entry) == 1 do
+            acc + 1
+          else
+            splits = String.split(entry, " ")
+            people = length(splits)
+
+            IO.inspect(splits)
+            IO.inspect(people)
+            acc
+          end
+        end
+      end)
+
+    IO.inspect(answer)
+  end
+
+  defp get_values do
+    case File.read("input.txt") do
+      {:ok, contents} ->
+        contents
+        |> String.split("\n\n", trim: true)
+        |> Enum.map(fn question -> String.replace(question, "\n", " ") end)
+
+      {:error, reason} ->
+        IO.puts(reason)
+    end
+  end
+end
+
+# IO.puts("Part1:")
+# CustomCustoms.part1()
+IO.puts("Part2:")
+CustomCustoms.part2()
