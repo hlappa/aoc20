@@ -8,4 +8,4 @@ To run the Elixir files execute:
 $ elixir solution.ex
 ```
 
-inside the dayN folder and you should see answers for part 1 & 2.
+inside the dayN folder and you should see solutions/answers for part 1 & 2.

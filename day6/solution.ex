@@ -15,7 +15,7 @@ defmodule CustomCustoms do
       {:ok, contents} ->
         contents
         |> String.split("\n\n", trim: true)
-        |> Enum.map(fn question -> String.replace(question, "\n", " ") end)
+        |> Enum.map(fn str -> String.replace(str, "\n", " ") |> String.trim_trailing(" ") end)
 
       {:error, reason} ->
         IO.puts(reason)
